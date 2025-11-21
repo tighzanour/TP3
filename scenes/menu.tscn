@@ -1,0 +1,160 @@
+[gd_scene load_steps=19 format=3 uid="uid://bc0yqu7adrdul"]
+
+[ext_resource type="Script" uid="uid://cnkuvv5pej4iv" path="res://scenes/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://dupcenxpfphhm" path="res://assets/menu/image-from-rawpixel-id-14534256-jpeg.jpg" id="2_vjb58"]
+[ext_resource type="Script" uid="uid://cwik0bd20ry63" path="res://scenes/panel.gd" id="3_4ytvr"]
+[ext_resource type="FontFile" uid="uid://b4w2xcwfgt7yh" path="res://fonts/Pixel Bug.otf" id="3_mhnvy"]
+[ext_resource type="FontFile" uid="uid://uu4thg2kyedk" path="res://fonts/fForesthome.ttf" id="4_4ytvr"]
+[ext_resource type="AudioStream" uid="uid://dbx1n3766dls4" path="res://assets/sound_effects/theme (2).mp3" id="6_g3eks"]
+[ext_resource type="Script" uid="uid://det4e6150clfa" path="res://scenes/label.gd" id="6_v86rl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4h3mk"]
+texture = ExtResource("2_vjb58")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.605274, 0.605274, 0.605274, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhnvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70i5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mj5lg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v86rl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13sgg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6lef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3eks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufwb2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ytvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v86rl"]
+font_size = 82
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.6)
+pivot_offset = Vector2(576, 346)
+theme_override_styles/panel = SubResource("StyleBoxTexture_4h3mk")
+script = ExtResource("3_4ytvr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.269
+anchor_top = 0.415
+anchor_right = 0.732
+anchor_bottom = 0.756
+offset_left = 0.111969
+offset_top = 43.08
+offset_right = -0.264038
+offset_bottom = -33.888
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.478431)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0, 0, 0.933333)
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mhnvy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_70i5f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mj5lg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_v86rl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_13sgg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i6lef")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g3eks")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ufwb2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4ytvr")
+text = "Play"
+
+[node name="fun" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.478431)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0, 0, 0.933333)
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mhnvy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_70i5f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mj5lg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_v86rl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_13sgg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i6lef")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g3eks")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ufwb2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4ytvr")
+text = "Fun"
+
+[node name="leave" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.478431)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0, 0, 0.933333)
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mhnvy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_70i5f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mj5lg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_v86rl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_13sgg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i6lef")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g3eks")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ufwb2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4ytvr")
+text = "Leave"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = 48.0
+offset_right = -256.0
+offset_bottom = 131.0
+grow_horizontal = 2
+scale = Vector2(1.4521, 1.4521)
+theme_override_fonts/font = ExtResource("4_4ytvr")
+theme_override_font_sizes/font_size = 90
+text = "FORWARD"
+label_settings = SubResource("LabelSettings_v86rl")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+script = ExtResource("6_v86rl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_g3eks")
+volume_db = -11.243
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/fun" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_button_3_pressed"]

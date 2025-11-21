@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqlt8hckn6k7o"]
+
+[ext_resource type="Script" uid="uid://vrcaxbacjccp" path="res://checkpoint_2d.gd" id="1_mf4vv"]
+[ext_resource type="Texture2D" uid="uid://3kg7i88qfh3d" path="res://assets/sprites/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="2_kkdbw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i44wn"]
+atlas = ExtResource("2_kkdbw")
+region = Rect2(96, 32, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4nsu"]
+atlas = ExtResource("2_kkdbw")
+region = Rect2(96, 40, 32, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mf4vv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i44wn")
+}],
+"loop": true,
+"name": &"active",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4nsu")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niw4f"]
+size = Vector2(30, 8)
+
+[node name="checkpoint2D" type="Area2D"]
+script = ExtResource("1_mf4vv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(335, -117)
+sprite_frames = SubResource("SpriteFrames_mf4vv")
+animation = &"inactive"
+autoplay = "active"
+offset = Vector2(-335, 117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_niw4f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbdfexgtxa1g8"]
+
+[ext_resource type="Script" uid="uid://wb78oikafqy3" path="res://scripts/heart.gd" id="1_ycbwg"]
+[ext_resource type="Texture2D" uid="uid://bfv70wvcllsrw" path="res://assets/sprites/items/pico 8 Item tiles 01.png" id="2_ycbwg"]
+[ext_resource type="AudioStream" uid="uid://bw8f18qixxq73" path="res://assets/sound_effects/決定ボタンを押す39.mp3" id="3_krgnv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krgnv"]
+atlas = ExtResource("2_ycbwg")
+region = Rect2(0, 80, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oquu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krgnv")
+}],
+"loop": true,
+"name": &"heart",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fb81"]
+size = Vector2(6, 6)
+
+[node name="bananas" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ycbwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.47035e-08, 4.47035e-08)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_oquu7")
+animation = &"heart"
+autoplay = "heart"
+frame_progress = 0.648109
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0fb81")
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_krgnv")
+volume_db = -10.307
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

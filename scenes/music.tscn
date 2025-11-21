@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://8frdbq5eb0rp"]
+
+[ext_resource type="AudioStream" uid="uid://y27d10ljuh5d" path="res://assets/sound_effects/melogame (Extend).mp3" id="1_05ggv"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_05ggv")
+volume_db = -26.234

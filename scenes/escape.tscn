@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cidgrnjk1ta2f"]
+
+[ext_resource type="Script" uid="uid://c2bxyfpigb2tu" path="res://scenes/escape.gd" id="1_fu77f"]
+
+[node name="escape" type="CanvasLayer"]
+script = ExtResource("1_fu77f")
+
+[node name="EscapePanel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.483
+anchor_top = 0.469
+anchor_right = 0.517
+anchor_bottom = 0.531
+offset_left = -0.416016
+offset_top = 0.0879822
+offset_right = 0.415955
+offset_bottom = -0.0880127
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.12, 6.52)
+pivot_offset = Vector2(20, 20)
