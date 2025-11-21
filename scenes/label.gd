@@ -1,8 +1,8 @@
 extends Label
 
-@export var bpm = 80                # Beats per minute
-@export var scale_amount = 1    # Max scale
-@export var shake_intensity = 1.2  # Pixels
+@export var bpm = 80               
+@export var scale_amount = 1   
+@export var shake_intensity = 1.2  
 
 var original_scale = Vector2.ONE
 var original_position = Vector2.ZERO
@@ -16,10 +16,8 @@ func _ready():
 func _process(delta):
 	time_passed += delta
 	
-	# --- Pulse (scale) ---
 	var pulse = abs(sin(time_passed * TAU / seconds_per_beat))
 	scale = original_scale * (1 + pulse * (scale_amount - 1))
 	
-	# --- Shake (position) ---
 	var shake = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * pulse * shake_intensity
 	position = original_position + shake

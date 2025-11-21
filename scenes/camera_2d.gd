@@ -1,7 +1,7 @@
 extends Camera2D
 
-var shake_strength: float = 0.0
-var shake_decay: float = 2.5  # vitesse à laquelle le shake se calme
+var shake_strength: float = 0
+var shake_decay: float = 1
 
 func _process(delta: float) -> void:
 	if shake_strength > 0:

@@ -4,7 +4,7 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -243.0
 const MAX_JUMPS = 2
 const SLIDE_SPEED = 170.0
-const SLIDE_DURATION = 0.5  # seconds
+const SLIDE_DURATION = 0.5
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var footsteps: AudioStreamPlayer2D = $footsteps
@@ -23,9 +23,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		jumps_done = 0
 		if sliding:
-			sliding = true  # Stop slide when touching ground again
+			sliding = true 
 
-	# --- SLIDE LOGIC ---
+	# slide
 	if Input.is_action_pressed("down") and not sliding:
 		sliding = true
 		slide_timer = SLIDE_DURATION
@@ -35,12 +35,12 @@ func _physics_process(delta: float) -> void:
 		if slide_timer <= 0:
 			sliding = false
 
-	# --- JUMP LOGIC ---
+	# jump
 	if Input.is_action_just_pressed("ui_accept") and jumps_done < MAX_JUMPS and not sliding:
 		velocity.y = JUMP_VELOCITY
 		jumps_done += 1
 
-	# --- MOVEMENT ---
+	# left right
 	var direction := Input.get_axis("left", "right")
 
 	if sliding:
@@ -52,13 +52,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# --- FLIP SPRITE ---
+	# changer coté
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
 
-	# --- ANIMATIONS ---
+	# animations
 	if sliding:
 		animated_sprite.play("slide")
 	elif not is_on_floor():
@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# --- FOOTSTEPS SOUND ---
+	# footsteps
 	var move_axis := Input.get_axis("left", "right")
 
 	if is_on_floor() and move_axis != 0 and not sliding:
@@ -80,9 +80,9 @@ func _physics_process(delta: float) -> void:
 		if footsteps.playing:
 			footsteps.stop()
 			
-	# --- CAMERA SHAKE BASED ON DISTANCE TO KILLZONE ---
+	# camera shake
 	var dist = global_position.distance_to(killzone.global_position)
 
-	var maxDist = 900.0  # distance à partir de laquelle il n'y a plus de shake
+	var maxDist = 900  
 	var intensity = clamp(1.0 - (dist / maxDist), 0.0, 1.0)
 	cam.shake_strength = intensity * 1.0

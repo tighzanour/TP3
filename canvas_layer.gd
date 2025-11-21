@@ -5,7 +5,5 @@ func _process(delta: float) -> void:
 		_escape()
 
 func _escape() -> void:
-	# Hide the menu or do your escape logic
 	visible = false
-	# Optional: play a sound, reset variables, go back to main scene...
 	print("Escape pressed!")
