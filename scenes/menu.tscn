@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://cwik0bd20ry63" path="res://scenes/panel.gd" id="3_4ytvr"]
 [ext_resource type="FontFile" uid="uid://b4w2xcwfgt7yh" path="res://fonts/Pixel Bug.otf" id="3_mhnvy"]
 [ext_resource type="FontFile" uid="uid://uu4thg2kyedk" path="res://fonts/fForesthome.ttf" id="4_4ytvr"]
-[ext_resource type="AudioStream" uid="uid://dbx1n3766dls4" path="res://assets/sound_effects/theme (2).mp3" id="6_g3eks"]
 [ext_resource type="Script" uid="uid://det4e6150clfa" path="res://scenes/label.gd" id="6_v86rl"]
+[ext_resource type="AudioStream" uid="uid://lo85w7v5vnkc" path="res://assets/sound_effects/guitar improv - linked winters - SoundLoadMate.com.mp3" id="7_v86rl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4h3mk"]
 texture = ExtResource("2_vjb58")
@@ -46,9 +46,15 @@ script = ExtResource("1_vjb58")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.097
+anchor_top = -0.309
+anchor_right = 1.097
+anchor_bottom = 1.272
+offset_left = 207.744
+offset_top = 384.232
+offset_right = -80.744
+offset_bottom = -80.256
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.6)
@@ -63,10 +69,10 @@ anchor_left = 0.269
 anchor_top = 0.415
 anchor_right = 0.732
 anchor_bottom = 0.756
-offset_left = 0.111969
-offset_top = 43.08
-offset_right = -0.264038
-offset_bottom = -33.888
+offset_left = 0.112
+offset_top = 11.08
+offset_right = -0.263977
+offset_bottom = -65.888
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -152,7 +158,7 @@ clip_text = true
 script = ExtResource("6_v86rl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_g3eks")
+stream = ExtResource("7_v86rl")
 volume_db = -11.243
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_button_pressed"]

@@ -1,0 +1,127 @@
+[gd_scene load_steps=15 format=3 uid="uid://d0b10hcr3whl0"]
+
+[ext_resource type="Script" uid="uid://dw8myj55miay7" path="res://scripts/pause.gd" id="1_2g3q3"]
+[ext_resource type="Script" uid="uid://d25hqgpjhrwk7" path="res://color_rect.gd" id="1_aq7p1"]
+[ext_resource type="FontFile" uid="uid://b4w2xcwfgt7yh" path="res://fonts/Pixel Bug.otf" id="2_6eyaj"]
+
+[sub_resource type="Shader" id="Shader_8u653"]
+code = "shader_type canvas_item;
+uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
+
+uniform float lod : hint_range(0.0, 5) = 0.0;
+
+void fragment() {
+    vec4 color = texture(screen_texture, SCREEN_UV, lod);
+    COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bwtow"]
+shader = SubResource("Shader_8u653")
+shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05lnj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jg8ls"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u063c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_56vcw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m0a22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2ufp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21xor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1xvq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8bi2"]
+
+[node name="pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2g3q3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bwtow")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aq7p1")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(0.986752, 0.986752, 0.986752, 1)
+clip_children = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 316.0
+offset_top = 113.0
+offset_right = 316.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.439293, 0.642857)
+
+[node name="pausebox" type="VBoxContainer" parent="PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="resume" type="Button" parent="PanelContainer/pausebox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.478431)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.86, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6eyaj")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05lnj")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jg8ls")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u063c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_56vcw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m0a22")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w2ufp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_21xor")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1xvq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o8bi2")
+text = "Resume"
+
+[node name="menu" type="Button" parent="PanelContainer/pausebox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.478431)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0, 0, 0.933333)
+theme_override_fonts/font = ExtResource("2_6eyaj")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05lnj")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jg8ls")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u063c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_56vcw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m0a22")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w2ufp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_21xor")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1xvq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o8bi2")
+text = "Back to menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="pressed" from="PanelContainer/pausebox/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/pausebox/menu" to="." method="_on_menu_pressed"]

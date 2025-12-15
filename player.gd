@@ -11,7 +11,7 @@ const SLIDE_DURATION = 0.5
 @onready var killzone: Node2D = $"../killzone_back"
 @onready var cam: Camera2D = $Camera2D
 
-
+signal key_collected(count)
 
 var jumps_done = 0
 var sliding = false
@@ -80,9 +80,4 @@ func _physics_process(delta: float) -> void:
 		if footsteps.playing:
 			footsteps.stop()
 			
-	# camera shake
-	var dist = global_position.distance_to(killzone.global_position)
-
-	var maxDist = 900  
-	var intensity = clamp(1.0 - (dist / maxDist), 0.0, 1.0)
-	cam.shake_strength = intensity * 1.0
+			 

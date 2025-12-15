@@ -1256,9 +1256,10 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dqkch"]
 gradient = SubResource("Gradient_qhqgy")
+use_hdr = true
 fill = 1
 fill_from = Vector2(0.513761, 0.513761)
-fill_to = Vector2(1, 0.495413)
+fill_to = Vector2(1, 0.478632)
 
 [node name="player" type="CharacterBody2D"]
 z_index = 1
@@ -1273,6 +1274,7 @@ autoplay = "idle"
 frame_progress = 0.732433
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1.5, -5)
 shape = SubResource("RectangleShape2D_31cv2")
 
@@ -1283,8 +1285,9 @@ max_distance = 80.0
 playback_type = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1, -6)
-scale = Vector2(0.641991, 0.633184)
-color = Color(0.99996, 0.563012, 0.506781, 0.392157)
-energy = 2.53
+position = Vector2(1, -8)
+scale = Vector2(0.438057, 0.293873)
+color = Color(1, 1, 1, 0.270588)
+energy = 3.28
 texture = SubResource("GradientTexture2D_dqkch")
+texture_scale = 23.87

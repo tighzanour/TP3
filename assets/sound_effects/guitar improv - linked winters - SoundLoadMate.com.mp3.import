@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lo85w7v5vnkc"
+path="res://.godot/imported/guitar improv - linked winters - SoundLoadMate.com.mp3-1b4a65c784c87c350ffbbea4b87a3497.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/guitar improv - linked winters - SoundLoadMate.com.mp3"
+dest_files=["res://.godot/imported/guitar improv - linked winters - SoundLoadMate.com.mp3-1b4a65c784c87c350ffbbea4b87a3497.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
